@@ -11,7 +11,7 @@
 
 <StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controleur.Controleur">
    <children>
-      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #28282B; -fx-border-color: white; -fx-border-width: 5;">
+      <VBox fx:id="vBoxFinDeJeu" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #28282B; -fx-border-color: white; -fx-border-width: 5;">
          <children>
             <Label fx:id="messageVictoire" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" textFill="WHITE">
                <font>
@@ -25,7 +25,7 @@
             </Button>
          </children>
       </VBox>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
+      <BorderPane fx:id="borderPaneJeu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
          <top>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Morpion" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>
@@ -116,7 +116,7 @@
             </HBox>
          </bottom>
       </BorderPane>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
+      <BorderPane fx:id="borderPaneMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
          <top>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Morpion" textFill="WHITE" BorderPane.alignment="CENTER">
                <font>

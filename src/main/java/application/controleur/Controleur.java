@@ -8,7 +8,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -20,14 +22,13 @@ public class Controleur implements Initializable {
     private int victoire;
     private StringBuffer textFin;
 
-    @FXML
-    private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
-    @FXML
-    private Label messageVictoire;
-    @FXML
-    private Label infoTour;
-    @FXML
-    private StackPane stackPane;
+    @FXML private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
+    @FXML private Label messageVictoire;
+    @FXML private Label infoTour;
+    @FXML private StackPane stackPane;
+    @FXML private VBox vBoxFinDeJeu;
+    @FXML private BorderPane borderPaneJeu;
+    @FXML private BorderPane borderPaneMenu;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,12 +39,11 @@ public class Controleur implements Initializable {
 
     @FXML
     void unJoueur(ActionEvent event) {
-
     }
 
     @FXML
     void deuxJoueurs(ActionEvent event) {
-
+        commencer(event);
     }
 
     @FXML
@@ -53,7 +53,7 @@ public class Controleur implements Initializable {
 
     @FXML
     void commencer(ActionEvent event) {
-        stackPane.getChildren().get(stackPane.getChildren().size()-1).toBack();
+        borderPaneJeu.toFront();
         jeu.initGrille();
         jeu.setNbTour(0);
         victoire = 0;
@@ -112,7 +112,7 @@ public class Controleur implements Initializable {
                     else if (victoire == 2)
                         messageVictoire.setText("Victoire du Joueur O !");
                     Thread.sleep(150);
-                    stackPane.getChildren().get(stackPane.getChildren().size()-1).toBack();
+                    vBoxFinDeJeu.toFront();
                 }
             }
         } catch (Exception e) {}
