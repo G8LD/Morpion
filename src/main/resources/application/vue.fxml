@@ -44,40 +44,6 @@
             </HBox>
          </children>
       </VBox>
-      <BorderPane fx:id="borderPaneMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
-         <top>
-            <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Morpion" textFill="WHITE" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="30.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets top="30.0" />
-               </BorderPane.margin>
-            </Label>
-         </top>
-         <bottom>
-            <Label text="Par Steven Yang" textFill="WHITE" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets bottom="20.0" />
-               </BorderPane.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </bottom>
-         <center>
-            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unJoueur" prefHeight="30.0" prefWidth="130.0" text="1 Joueur" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deuxJoueurs" prefHeight="30.0" prefWidth="130.0" text="2 Joueurs" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitter" prefHeight="30.0" prefWidth="130.0" text="Quitter" />
-               </children>
-               <BorderPane.margin>
-                  <Insets bottom="150.0" />
-               </BorderPane.margin>
-            </VBox>
-         </center>
-      </BorderPane>
       <BorderPane fx:id="borderPaneJeu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
          <center>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" BorderPane.alignment="CENTER">
@@ -181,6 +147,39 @@
                </children>
             </VBox>
          </top>
+      </BorderPane>
+      <BorderPane fx:id="borderPaneMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
+         <top>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Morpion" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="30.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <bottom>
+            <Label text="Par Steven Yang" textFill="WHITE" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </bottom>
+         <center>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deuxJoueurs" prefHeight="30.0" prefWidth="130.0" text="Jouer" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitter" prefHeight="30.0" prefWidth="130.0" text="Quitter" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="150.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
       </BorderPane>
    </children>
 </StackPane>

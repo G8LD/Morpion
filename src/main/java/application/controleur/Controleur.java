@@ -24,7 +24,6 @@ public class Controleur implements Initializable {
     @FXML private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
     @FXML private Label messageVictoire;
     @FXML private Label infoTour;
-    @FXML private StackPane stackPane;
     @FXML private VBox vBoxFinDeJeu;
     @FXML private BorderPane borderPaneJeu;
     @FXML private BorderPane borderPaneMenu;
@@ -34,10 +33,6 @@ public class Controleur implements Initializable {
         jeu = new Jeu();
         victoire = 0;
         borderPaneMenu.toFront();
-    }
-
-    @FXML
-    void unJoueur(ActionEvent event) {
     }
 
     @FXML
