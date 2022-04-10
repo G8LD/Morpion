@@ -1,6 +1,7 @@
 package application.controleur;
 
 import application.modele.DejaPris;
+import application.modele.IA;
 import application.modele.Jeu;
 import application.modele.PartieFinie;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ public class Controleur implements Initializable {
 
     private Jeu jeu;
     private int victoire;
+    private IA ia;
 
     @FXML private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
     @FXML private Label messageVictoire;
@@ -33,6 +35,12 @@ public class Controleur implements Initializable {
         jeu = new Jeu();
         victoire = 0;
         borderPaneMenu.toFront();
+    }
+
+    @FXML
+    void unJoueur(ActionEvent event) {
+        commencer(event);
+        ia = new IA(jeu, this);
     }
 
     @FXML
@@ -106,8 +114,11 @@ public class Controleur implements Initializable {
                 if (jeu.getNbTour() < 9 && victoire == 0) {
                     if (jeu.getNbTour() % 2 == 0)
                         infoTour.setText("X");
-                    else
+                    else {
                         infoTour.setText("O");
+                        if (ia != null)
+                            ia.jouer();
+                    }
                 } else {
                     if (victoire == 0)
                         messageVictoire.setText("Egalité !");
@@ -133,6 +144,21 @@ public class Controleur implements Initializable {
             case "bg" : bg.setText(joueur); break;
             case "bm" : bm.setText(joueur); break;
             case "bd" : bd.setText(joueur); break;
+            default: break;
+        }
+    }
+
+    public void appuieBouton(String id) {
+        switch (id) {
+            case "hg" : hg.fire(); break;
+            case "hm" : hm.fire(); break;
+            case "hd" : hd.fire(); break;
+            case "cg" : cg.fire(); break;
+            case "cm" : cm.fire(); break;
+            case "cd" : cd.fire(); break;
+            case "bg" : bg.fire(); break;
+            case "bm" : bm.fire(); break;
+            case "bd" : bd.fire(); break;
             default: break;
         }
     }
