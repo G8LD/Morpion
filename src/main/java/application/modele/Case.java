@@ -26,4 +26,6 @@ public class Case {
     public int getJoueur() {
         return joueur;
     }
+
+
 }
