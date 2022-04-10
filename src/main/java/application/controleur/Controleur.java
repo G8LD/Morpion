@@ -46,6 +46,7 @@ public class Controleur implements Initializable {
     @FXML
     void deuxJoueurs(ActionEvent event) {
         commencer(event);
+        ia = null;
     }
 
     @FXML
