@@ -11,20 +11,6 @@
 
 <StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controleur.Controleur">
    <children>
-      <VBox fx:id="vBoxFinDeJeu" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #28282B; -fx-border-color: white; -fx-border-width: 5;">
-         <children>
-            <Label fx:id="messageVictoire" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" textFill="WHITE">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Label>
-            <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commencer" prefHeight="25.0" prefWidth="70.0" text="Rejouer">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
       <BorderPane fx:id="borderPaneJeu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
          <top>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Morpion" textFill="WHITE" BorderPane.alignment="CENTER">
@@ -150,5 +136,36 @@
             </VBox>
          </center>
       </BorderPane>
+      <VBox fx:id="vBoxFinDeJeu" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #28282B; -fx-border-color: white; -fx-border-width: 5;">
+         <children>
+            <Button alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#fermerOnglet" prefHeight="25.0" prefWidth="25.0" text="X">
+               <VBox.margin>
+                  <Insets left="365.0" />
+               </VBox.margin>
+            </Button>
+            <Label fx:id="messageVictoire" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="400.0">
+               <children>
+                  <Button alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#commencer" prefHeight="25.0" prefWidth="70.0" text="Rejouer">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#boutonMenu" prefHeight="25.0" prefWidth="70.0" text="Menu">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </StackPane>

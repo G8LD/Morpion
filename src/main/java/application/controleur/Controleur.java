@@ -20,7 +20,6 @@ public class Controleur implements Initializable {
 
     private Jeu jeu;
     private int victoire;
-    private StringBuffer textFin;
 
     @FXML private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
     @FXML private Label messageVictoire;
@@ -34,7 +33,7 @@ public class Controleur implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         jeu = new Jeu();
         victoire = 0;
-        textFin = new StringBuffer(" FIN !");
+        borderPaneMenu.toFront();
     }
 
     @FXML
@@ -49,6 +48,16 @@ public class Controleur implements Initializable {
     @FXML
     void quitter(ActionEvent event) {
         ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
+    }
+
+    @FXML
+    void boutonMenu(ActionEvent event) {
+        borderPaneMenu.toFront();
+    }
+
+    @FXML
+    void fermerOnglet(ActionEvent event) {
+        vBoxFinDeJeu.toBack();
     }
 
     @FXML
