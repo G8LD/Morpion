@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controleur.Controleur">
+<StackPane fx:id="stackPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controleur.Controleur">
    <children>
       <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #28282B; -fx-border-color: white; -fx-border-width: 5;">
          <children>
@@ -115,6 +115,40 @@
                </children>
             </HBox>
          </bottom>
+      </BorderPane>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #28282B;">
+         <top>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Morpion" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="30.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <bottom>
+            <Label text="Par Steven Yang" textFill="WHITE" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="20.0" />
+               </BorderPane.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </bottom>
+         <center>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unJoueur" prefHeight="30.0" prefWidth="130.0" text="1 Joueur" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="235.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#deuxJoueurs" prefHeight="30.0" prefWidth="130.0" text="2 Joueurs" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="245.0" layoutY="220.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitter" prefHeight="30.0" prefWidth="130.0" text="Quitter" />
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="150.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
       </BorderPane>
    </children>
 </StackPane>

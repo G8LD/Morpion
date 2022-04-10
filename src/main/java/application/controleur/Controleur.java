@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,6 +34,21 @@ public class Controleur implements Initializable {
         jeu = new Jeu();
         victoire = 0;
         textFin = new StringBuffer(" FIN !");
+    }
+
+    @FXML
+    void unJoueur(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deuxJoueurs(ActionEvent event) {
+
+    }
+
+    @FXML
+    void quitter(ActionEvent event) {
+        ((Stage) ((Button) event.getSource()).getScene().getWindow()).close();
     }
 
     @FXML
@@ -116,5 +132,6 @@ public class Controleur implements Initializable {
             default: break;
         }
     }
+
 }
 
