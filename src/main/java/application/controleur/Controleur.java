@@ -89,6 +89,8 @@ public class Controleur implements Initializable {
                 affichageCase(jeu.getIa().getCaseJoue(), "O");
                 decalage = 1;
             }
+            if (jeu.getNbTour() == 9) decalage = 0;
+
             if ((jeu.getNbTour() - decalage) % 2 == 1) {
                 ((Button) event.getSource()).setText("X");
                 infoTour.setText("O");
