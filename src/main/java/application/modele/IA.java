@@ -1,22 +1,20 @@
 package application.modele;
 
 import application.controleur.Controleur;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 
 import java.util.Random;
 
 public class IA {
     private Jeu jeu;
     private Controleur controleur;
+    private String caseJoue;
 
     public IA(Jeu jeu, Controleur controleur) {
         this.jeu = jeu;
         this.controleur = controleur;
     }
 
-    public void jouer() {
+    public void jouer() throws PartieFinie {
         if (!verifPresqueVictoire(2))
             if (!verifPresqueVictoire(1)) {
                 Random random = new Random();
@@ -24,9 +22,9 @@ public class IA {
                 do {
                     hasard = random.nextInt(9);
                 } while (jeu.getGrille().get(hasard).getJoueur() != 0);
-                controleur.appuieBouton(jeu.getGrille().get(hasard).getId());
+                caseJoue = jeu.getGrille().get(hasard).getId();
             }
-
+        jeu.unTour(caseJoue);
     }
 
     public boolean verifPresqueVictoire(int joueur) {
@@ -75,12 +73,14 @@ public class IA {
             if (caseVide == null)
                 return false;
             else {
-                controleur.appuieBouton(caseVide.getId());
+                caseJoue = caseVide.getId();
                 return true;
             }
     }
 
-
+    public String getCaseJoue() {
+        return caseJoue;
+    }
 }
 
 

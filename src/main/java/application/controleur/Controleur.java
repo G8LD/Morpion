@@ -1,6 +1,5 @@
 package application.controleur;
 
-import application.modele.DejaPris;
 import application.modele.IA;
 import application.modele.Jeu;
 import application.modele.PartieFinie;
@@ -10,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -20,8 +18,6 @@ import java.util.ResourceBundle;
 public class Controleur implements Initializable {
 
     private Jeu jeu;
-    private int victoire;
-    private IA ia;
 
     @FXML private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
     @FXML private Label messageVictoire;
@@ -33,20 +29,19 @@ public class Controleur implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         jeu = new Jeu();
-        victoire = 0;
         borderPaneMenu.toFront();
     }
 
     @FXML
     void unJoueur(ActionEvent event) {
         commencer(event);
-        ia = new IA(jeu, this);
+        jeu.setIa(new IA(jeu, this));
     }
 
     @FXML
     void deuxJoueurs(ActionEvent event) {
         commencer(event);
-        ia = null;
+        jeu.setIa(null);
     }
 
     @FXML
@@ -69,7 +64,7 @@ public class Controleur implements Initializable {
         borderPaneJeu.toFront();
         jeu.initGrille();
         jeu.setNbTour(0);
-        victoire = 0;
+        jeu.setVictoire(0);
         infoTour.setText("X");
         //region reinit affichage
         hg.setText("");
@@ -85,53 +80,38 @@ public class Controleur implements Initializable {
     }
 
     @FXML
-    public void bouton(ActionEvent event) {
+    public void unTour(ActionEvent event) {
         try {
-            int nbTourActuelle = jeu.getNbTour();
+            jeu.unTour(((Button) event.getSource()).getId());
 
-            if (jeu.getNbTour() == 9 || victoire != 0)
+            int decalage = 0;
+            if (jeu.getIa() != null) {
+                affichageCase(jeu.getIa().getCaseJoue(), "O");
+                decalage = 1;
+            }
+            if ((jeu.getNbTour() - decalage) % 2 == 1) {
+                ((Button) event.getSource()).setText("X");
+                infoTour.setText("O");
+            } else {
+                ((Button) event.getSource()).setText("O");
+                infoTour.setText("X");
+            }
+            if (jeu.getNbTour() == 9 || jeu.getVictoire() != 0)
                 throw new PartieFinie();
-
-            int i = 0;
-            while (!jeu.getGrille().get(i).getId().equals(((Button) event.getSource()).getId())) {
-                i++;
-            }
-
+        } catch (PartieFinie e) {
+            if (jeu.getVictoire() == 0)
+                messageVictoire.setText("Egalité !");
+            if (jeu.getVictoire() == 1)
+                messageVictoire.setText("Victoire du Joueur X !");
+            else if (jeu.getVictoire() == 2)
+                messageVictoire.setText("Victoire du Joueur O !");
             try {
-                if (jeu.getNbTour() % 2 == 0) {
-                    jeu.getGrille().get(i).setJoueur(1);
-                    affichageCase(((Button) event.getSource()).getId(), "X");
-                } else {
-                    jeu.getGrille().get(i).setJoueur(2);
-                    affichageCase(((Button) event.getSource()).getId(), "O");
-                }
-                jeu.setNbTour(jeu.getNbTour() + 1);
-            } catch (DejaPris e) {}
-
-            if (nbTourActuelle < jeu.getNbTour()) {
-                if (jeu.getNbTour() >= 5)
-                    victoire = jeu.verifVictoire();
-
-                if (jeu.getNbTour() < 9 && victoire == 0) {
-                    if (jeu.getNbTour() % 2 == 0)
-                        infoTour.setText("X");
-                    else {
-                        infoTour.setText("O");
-                        if (ia != null)
-                            ia.jouer();
-                    }
-                } else {
-                    if (victoire == 0)
-                        messageVictoire.setText("Egalité !");
-                    if (victoire == 1)
-                        messageVictoire.setText("Victoire du Joueur X !");
-                    else if (victoire == 2)
-                        messageVictoire.setText("Victoire du Joueur O !");
-                    Thread.sleep(150);
-                    vBoxFinDeJeu.toFront();
-                }
+                Thread.sleep(150);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-        } catch (Exception e) {}
+            vBoxFinDeJeu.toFront();
+        }
     }
 
     private void affichageCase(String id, String joueur) {
