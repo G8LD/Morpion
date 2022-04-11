@@ -1,6 +1,5 @@
 package application.controleur;
 
-import application.modele.DejaPris;
 import application.modele.IA;
 import application.modele.Jeu;
 import application.modele.PartieFinie;
@@ -10,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 

@@ -1,9 +1,6 @@
 package application.modele;
 
 import application.controleur.Controleur;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
 
 import java.util.Random;
 
