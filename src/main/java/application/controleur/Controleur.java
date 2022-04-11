@@ -85,14 +85,21 @@ public class Controleur implements Initializable {
     public void unTour(ActionEvent event) {
         try {
             jeu.unTour(((Button) event.getSource()).getId());
-                if (jeu.getNbTour() % 2 == 0) {
-                    ((Button) event.getSource()).setText("O");
-                    infoTour.setText("X");
-                }
-                else {
-                    ((Button) event.getSource()).setText("X");
-                    infoTour.setText("O");
-                }
+
+            int decalage = 0;
+            if (jeu.getIa() != null) {
+                affichageCase(jeu.getIa().getCaseJoue(), "O");
+                decalage = 1;
+            }
+            if ((jeu.getNbTour() - decalage) % 2 == 1) {
+                ((Button) event.getSource()).setText("X");
+                infoTour.setText("O");
+            } else {
+                ((Button) event.getSource()).setText("O");
+                infoTour.setText("X");
+            }
+            if (jeu.getNbTour() == 9 || jeu.getVictoire() != 0)
+                throw new PartieFinie();
         } catch (PartieFinie e) {
             if (jeu.getVictoire() == 0)
                 messageVictoire.setText("Egalité !");

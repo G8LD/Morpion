@@ -53,6 +53,10 @@ public class Jeu {
         return victoire;
     }
 
+    public IA getIa() {
+        return ia;
+    }
+
     public void setIa(IA ia) {
         this.ia = ia;
     }
@@ -79,7 +83,7 @@ public class Jeu {
         if (nbTourActuelle < nbTour && nbTour >= 5)
             victoire = verifVictoire();
 
-        if (victoire == 0 && nbTour % 2 == 1 && ia != null)
+        if (nbTour < 9 && victoire == 0 && nbTour % 2 == 1 && ia != null)
             ia.jouer();
     }
 
