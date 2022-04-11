@@ -20,8 +20,6 @@ import java.util.ResourceBundle;
 public class Controleur implements Initializable {
 
     private Jeu jeu;
-    private int victoire;
-    private IA ia;
 
     @FXML private Button hg,hm,hd,cg,cm,cd,bg,bm,bd;
     @FXML private Label messageVictoire;
@@ -33,20 +31,19 @@ public class Controleur implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         jeu = new Jeu();
-        victoire = 0;
         borderPaneMenu.toFront();
     }
 
     @FXML
     void unJoueur(ActionEvent event) {
         commencer(event);
-        ia = new IA(jeu, this);
+        jeu.setIa(new IA(jeu, this));
     }
 
     @FXML
     void deuxJoueurs(ActionEvent event) {
         commencer(event);
-        ia = null;
+        jeu.setIa(null);
     }
 
     @FXML
@@ -69,7 +66,7 @@ public class Controleur implements Initializable {
         borderPaneJeu.toFront();
         jeu.initGrille();
         jeu.setNbTour(0);
-        victoire = 0;
+        jeu.setVictoire(0);
         infoTour.setText("X");
         //region reinit affichage
         hg.setText("");
@@ -85,53 +82,31 @@ public class Controleur implements Initializable {
     }
 
     @FXML
-    public void bouton(ActionEvent event) {
+    public void unTour(ActionEvent event) {
         try {
-            int nbTourActuelle = jeu.getNbTour();
-
-            if (jeu.getNbTour() == 9 || victoire != 0)
-                throw new PartieFinie();
-
-            int i = 0;
-            while (!jeu.getGrille().get(i).getId().equals(((Button) event.getSource()).getId())) {
-                i++;
-            }
-
-            try {
+            jeu.unTour(((Button) event.getSource()).getId());
                 if (jeu.getNbTour() % 2 == 0) {
-                    jeu.getGrille().get(i).setJoueur(1);
-                    affichageCase(((Button) event.getSource()).getId(), "X");
-                } else {
-                    jeu.getGrille().get(i).setJoueur(2);
-                    affichageCase(((Button) event.getSource()).getId(), "O");
+                    ((Button) event.getSource()).setText("O");
+                    infoTour.setText("X");
                 }
-                jeu.setNbTour(jeu.getNbTour() + 1);
-            } catch (DejaPris e) {}
-
-            if (nbTourActuelle < jeu.getNbTour()) {
-                if (jeu.getNbTour() >= 5)
-                    victoire = jeu.verifVictoire();
-
-                if (jeu.getNbTour() < 9 && victoire == 0) {
-                    if (jeu.getNbTour() % 2 == 0)
-                        infoTour.setText("X");
-                    else {
-                        infoTour.setText("O");
-                        if (ia != null)
-                            ia.jouer();
-                    }
-                } else {
-                    if (victoire == 0)
-                        messageVictoire.setText("Egalité !");
-                    if (victoire == 1)
-                        messageVictoire.setText("Victoire du Joueur X !");
-                    else if (victoire == 2)
-                        messageVictoire.setText("Victoire du Joueur O !");
-                    Thread.sleep(150);
-                    vBoxFinDeJeu.toFront();
+                else {
+                    ((Button) event.getSource()).setText("X");
+                    infoTour.setText("O");
                 }
+        } catch (PartieFinie e) {
+            if (jeu.getVictoire() == 0)
+                messageVictoire.setText("Egalité !");
+            if (jeu.getVictoire() == 1)
+                messageVictoire.setText("Victoire du Joueur X !");
+            else if (jeu.getVictoire() == 2)
+                messageVictoire.setText("Victoire du Joueur O !");
+            try {
+                Thread.sleep(150);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
             }
-        } catch (Exception e) {}
+            vBoxFinDeJeu.toFront();
+        }
     }
 
     private void affichageCase(String id, String joueur) {

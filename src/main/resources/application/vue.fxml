@@ -53,36 +53,17 @@
                <children>
                   <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0">
                      <children>
-                        <Button fx:id="hg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
+                        <Button fx:id="hg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
                            <font>
                               <Font size="47.0" />
                            </font>
                         </Button>
-                        <Button fx:id="hm" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
+                        <Button fx:id="hm" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
                            <font>
                               <Font size="47.0" />
                            </font>
                         </Button>
-                        <Button fx:id="hd" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
-                           <font>
-                              <Font size="47.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0">
-                     <children>
-                        <Button fx:id="cg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
-                           <font>
-                              <Font size="47.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="cm" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
-                           <font>
-                              <Font size="47.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="cd" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
+                        <Button fx:id="hd" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
                            <font>
                               <Font size="47.0" />
                            </font>
@@ -91,17 +72,36 @@
                   </HBox>
                   <HBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0">
                      <children>
-                        <Button fx:id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
+                        <Button fx:id="cg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
                            <font>
                               <Font size="47.0" />
                            </font>
                         </Button>
-                        <Button fx:id="bm" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
+                        <Button fx:id="cm" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
                            <font>
                               <Font size="47.0" />
                            </font>
                         </Button>
-                        <Button fx:id="bd" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bouton" prefHeight="100.0" prefWidth="100.0">
+                        <Button fx:id="cd" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
+                           <font>
+                              <Font size="47.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0">
+                     <children>
+                        <Button fx:id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
+                           <font>
+                              <Font size="47.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bm" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
+                           <font>
+                              <Font size="47.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="bd" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#unTour" prefHeight="100.0" prefWidth="100.0">
                            <font>
                               <Font size="47.0" />
                            </font>
